@@ -10,10 +10,12 @@ logging.basicConfig(level = logging.INFO, filename = 'scrappers.log', filemode =
 app=Flask(__name__)
 
 @app.route("/",methods=['GET'])
+@cross_origin() #allows us to access globally
 def homepage():
     return render_template("index.html")
 
 @app.route("/review",methods=['POST','GET'])
+@cross_origin()
 def index():
     if(request.method=='POST'):
         try:
